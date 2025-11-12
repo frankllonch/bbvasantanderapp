@@ -1,0 +1,99 @@
+/* ==============================
+   🌈 MAIN THEME STYLES
+   ============================== */
+
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+/* Fuente general tipo Apple */
+body, .stMarkdown, .stText, .css-17eq0hr, .css-10trblm {
+    font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    color: #e3e3e3;
+}
+
+
+
+/* Fondo principal */
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(180deg, #0C1E3C 0%, #02040A 100%);
+}
+
+.title-bar-text:hover {
+    animation: glow 0.8s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 5px #FFD700; }
+    to { text-shadow: 0 0 15px #FFD700; }
+}
+
+/* Títulos de cada ventana */
+.title-bar-text {
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+.title-bar-text:hover {
+    color: #FFD700;
+    transform: scale(1.03);
+}
+
+/* Ventanas (retro efecto) */
+.window {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.window:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Botones */
+button[kind="primary"], .stButton>button {
+    background: linear-gradient(90deg, #0066FF, #00CCFF);
+    color: white;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.stButton>button:hover {
+    background: linear-gradient(90deg, #00CCFF, #0066FF);
+    transform: translateY(-2px);
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: rgba(10, 15, 30, 0.9);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Links de noticias */
+.news-item a {
+    color: #6BA4FF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.news-item a:hover {
+    color: #FFD700;
+}
+
+/* Animaciones suaves */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Tab hover */
+.stTabs [role="tab"]:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 3px;
+}
