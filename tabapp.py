@@ -21,7 +21,6 @@ def local_css(file_name):
 local_css("style.css")
 
 
-
 # ---------------- Language toggle ----------------
 LANG = st.sidebar.radio("🌐 Language / Idioma / Llengua", ["en", "es", "ca"], horizontal=True)
 T = {
@@ -38,7 +37,6 @@ T = {
 }
 st.markdown(f"""
 <div class="window"><div class="title-bar"><div class="title-bar-text">{T['title'][LANG]}</div></div>
-<div class="window-body"><small>{datetime.now().strftime('%Y-%m-%d %H:%M')}</small></div></div>
 """, unsafe_allow_html=True)
 
 # ---------------- Sidebar ----------------

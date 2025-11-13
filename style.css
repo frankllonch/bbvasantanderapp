@@ -18,10 +18,10 @@ body, .stMarkdown, .stText, .css-17eq0hr, .css-10trblm {
 }
 
 .title-bar-text:hover {
-    animation: glow 0.8s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 @keyframes glow {
-    from { text-shadow: 0 0 5px #FFD700; }
+    from { text-shadow: 0 0 1px #FFD700; }
     to { text-shadow: 0 0 15px #FFD700; }
 }
 
@@ -29,11 +29,12 @@ body, .stMarkdown, .stText, .css-17eq0hr, .css-10trblm {
 .title-bar-text {
     font-weight: 600;
     letter-spacing: 0.4px;
+    margin: 6px;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 .title-bar-text:hover {
     color: #FFD700;
-    transform: scale(1.03);
+    transform: scale(1);
 }
 
 /* Ventanas (retro efecto) */
@@ -41,6 +42,7 @@ body, .stMarkdown, .stText, .css-17eq0hr, .css-10trblm {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 8px;
+    margin: 3px;
     box-shadow: 0 0 12px rgba(0,0,0,0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -64,7 +66,7 @@ button[kind="primary"], .stButton>button {
 /* Sidebar */
 [data-testid="stSidebar"] {
     background: rgba(10, 15, 30, 0.9);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(100px);
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -95,5 +97,5 @@ button[kind="primary"], .stButton>button {
 }
 ::-webkit-scrollbar-thumb {
     background-color: #555;
-    border-radius: 3px;
+    border-radius: 30px;
 }

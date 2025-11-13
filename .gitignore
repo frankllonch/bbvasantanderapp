@@ -1,0 +1,11 @@
+# Entorno virtual
+venv/
+
+
+
+# Archivos temporales
+__pycache__/
+*.pyc
+.DS_Store
+
+santander/
