@@ -14,7 +14,7 @@ body, .stMarkdown, .stText, .css-17eq0hr, .css-10trblm {
 
 /* Fondo principal */
 [data-testid="stAppViewContainer"] {
-    background: linear-gradient(180deg, #0C1E3C 0%, #02040A 100%);
+    background: linear-gradient(180deg, #0c1e3c32 0%, #02040A 100%);
 }
 
 .title-bar-text:hover {

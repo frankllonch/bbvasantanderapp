@@ -428,7 +428,7 @@ class GRUModel(nn.Module):
 
     def forward(self, x):
         out, _ = self.gru(x)
-        return self.fc(out[:, -1, :])
+        return self.fc(out[:, -3, :])
 
 
 class LSTMModel(nn.Module):
@@ -439,7 +439,7 @@ class LSTMModel(nn.Module):
 
     def forward(self, x):
         out, _ = self.lstm(x)
-        return self.fc(out[:, -1, :])
+        return self.fc(out[:, -3, :])
 
 
 # =========================================================
@@ -533,8 +533,8 @@ with st.tabs(["Model Predictions"])[0]:
         "Santander": {
             "ticker": "SAN.MC",
             "scaler": "data/san_scaler.pkl",
-            "gru": "models/repository/san_gru_best.pth",
-            "lstm": "models/repository/san_lstm_best.pth",
+            "gru": "models/repository/santander_gru_best.pth",
+            "lstm": "models/repository/santander_lstm_best.pth",
         },
     }
 
@@ -579,9 +579,11 @@ with st.tabs(["Model Predictions"])[0]:
         col1, col2 = st.columns(2)
         col1.metric(f"GRU {forecast_horizon}-Day Forecast", f"{gru_pred.iloc[-1]:.2f} €", f"{gru_pred.iloc[-1]-last_close:+.2f} €")
         col2.metric(f"LSTM {forecast_horizon}-Day Forecast", f"{lstm_pred.iloc[-1]:.2f} €", f"{lstm_pred.iloc[-1]-last_close:+.2f} €")
-
+        # Use last 2 years for display
+        df_display = df[df.index >= (df.index.max() - pd.Timedelta(days=100))]
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=df.index, y=df["Close"], mode="lines", name="Actual Close (€)", line=dict(color="#00A3E0", width=2)))
+        fig.add_trace(go.Scatter(x=df_display.index, y=df_display["Close"], mode="lines", 
+                                name="Actual Close (€)", line=dict(color="#00A3E0", width=2)))
         fig.add_trace(go.Scatter(x=gru_pred.index, y=gru_pred.values, mode="lines+markers", name="GRU Forecast", line=dict(color="#FFD700", width=2, dash="dash")))
         fig.add_trace(go.Scatter(x=lstm_pred.index, y=lstm_pred.values, mode="lines+markers", name="LSTM Forecast", line=dict(color="#FF6B6B", width=2, dash="dot")))
 
